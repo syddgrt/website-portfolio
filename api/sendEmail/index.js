@@ -1,31 +1,37 @@
 const { EmailClient } = require("@azure/communication-email");
 
+const connectionString = process.env.ACS_CONNECTION_STRING; // put this in your SWA secrets
+const emailClient = new EmailClient(connectionString);
+
 module.exports = async function (context, req) {
     try {
-        if (!req.body || !req.body.email || !req.body.message) {
-            context.res = { status: 400, body: { error: "Missing required fields" } };
+        const { name, email, message } = req.body;
+
+        if (!name || !email || !message) {
+            context.res = { status: 400, body: "Missing required fields" };
             return;
         }
 
-        const emailClient = new EmailClient(process.env.ACS_CONNECTION_STRING);
-
-        const message = {
-            senderAddress: "DoNotReply@syedrious.cloud", // must match your verified ACS domain
+        const emailMessage = {
+            sender: "no-reply@syedrious.cloud", // the domain you verified
             content: {
-                subject: `Contact Form: ${req.body.email}`,
-                plainText: `Message from ${req.body.name || "Anonymous"} (${req.body.email}):\n\n${req.body.message}`,
-                html: `<p><strong>From:</strong> ${req.body.name || "Anonymous"} (${req.body.email})</p><p>${req.body.message}</p>`
+                subject: `New message from ${name}`,
+                plainText: `From: ${name} <${email}>\n\n${message}`,
+                html: `<p>From: <strong>${name}</strong> &lt;${email}&gt;</p><p>${message}</p>`
             },
             recipients: {
-                to: [{ address: "you@syedrious.cloud", displayName: "Syed" }]
+                to: [
+                    { email: "syedyangsebenar@gmail.com" } // your inbox
+                ]
             }
         };
 
-        const poller = await emailClient.beginSend(message);
-        const result = await poller.pollUntilDone();
+        const poller = await emailClient.beginSend(emailMessage);
+        await poller.pollUntilDone();
 
-        context.res = { status: 200, body: { success: true, result } };
+        context.res = { status: 200, body: "Email sent successfully!" };
     } catch (err) {
-        context.res = { status: 500, body: { error: err.message } };
+        console.error(err);
+        context.res = { status: 500, body: "Error sending email" };
     }
 };

@@ -1,0 +1,7 @@
+{
+  "name": "send-email-api",
+  "version": "1.0.0",
+  "dependencies": {
+    "@azure/communication-email": "^1.1.0"
+  }
+}

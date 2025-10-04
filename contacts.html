@@ -7,144 +7,152 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			.contact-container {
+			/* Contact Form Styling */
+			.contact-grid {
+				width: 100%;   
+
+				margin-top: 2rem;
+				width: 100%;       /* take full width of grid column */
 				display: flex;
 				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				padding: 50px 20px;
-				max-width: 1200px;
-				margin: 0 auto;
+				gap: 1rem;
 			}
-
-			.contact-section {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				width: 100%;
-				max-width: 700px;
-				margin: 20px 0;
-			}
-
-			.contact-info {
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				justify-content: space-around;
-				gap: 30px;
-				width: 100%;
-				margin-top: 40px;
-			}
-
-			.contact-method {
-				flex: 1;
-				min-width: 250px;
-				background: #f8f8f8;
-				color: #333; /* Text color adjustment */
-				padding: 20px;
+			#contact-form {
+				background: #fff;
+				padding: 2rem;
 				border-radius: 10px;
-				box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-				text-align: center;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 			}
-
-			.contact-method h3 {
-				color: #000; /* Adjust header text color for visibility */
+			#contact-form .form-group {
+				margin-bottom: 1.5rem;
 			}
-
-			.contact-method a {
-				color: #007bff; /* Link color adjustment */
+			#contact-form label {
+				display: block;
+				margin-bottom: 0.5rem;
+				font-weight: 600;
 			}
-
-			iframe {
+			#contact-form input,
+			#contact-form textarea {
 				width: 100%;
-				max-width: 700px;
-				height: 700px;
-				border-radius: 10px;
+				padding: 0.8rem;
+				border: 1px solid #ddd;
+				border-radius: 6px;
+				font-size: 1rem;
+			}
+			#contact-form button {
+				display: inline-block;
+				background: #0078d4;
+				color: #fff;
+				padding: 0.8rem 1.5rem;
+				border-radius: 6px;
 				border: none;
-				box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-				margin: 20px 0;
+				cursor: pointer;
+				font-weight: 600;
+				transition: background 0.2s ease-in-out;
 			}
-
-			/* Ensure text inside the form fields is visible */
-			input[type="text"], input[type="email"], textarea {
-				color: #000;
+			#contact-form button:hover {
+				background: #005a9e;
+			}
+			@media (max-width: 768px) {
+				.contact-grid {
+					grid-template-columns: 1fr;
+				}
 			}
 		</style>
 	</head>
 	<body class="is-preload">
-
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">		
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+			<!-- Header -->
+			<header id="header">		
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
 
-				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="aboutme.html">About Me</a></li>
-							<li><a href="projects.html">Projects</a></li>
-							<li><a href="hobbies.html">Hobbies</a></li>
-							<li><a href="contacts.html">Contacts</a></li>
-						</ul>
-					</nav>
+			<!-- Menu -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="aboutme.html">About Me</a></li>
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="hobbies.html">Hobbies</a></li>
+					<li><a href="contacts.html">Contacts</a></li>
+				</ul>
+			</nav>
 
-				<!-- Main -->
-				<div id="main" class="alt">
-					<section id="contact" class="contact-container">
-						<div class="inner">
-							<header class="major">
-								<h1>Contact Me</h1>
-                                <div class="contact-info">
-                                    <div>
-										<span class="icon solid alt fa-envelope"></span>
-                                        <h3>Email</h3>
-                                        <a href="mailto:syedyangsebenar@gmail.com">syedyangsebenar@gmail.com</a>
-                                    </div>                          
-                                    <div>
-                                        <span class="icon solid alt fa-phone"></span>
-                                        <h3>Phone</h3>
-                                        <span>019 – 5477488</span>
-                                    </div>    
-									<div>
-										<span class="icon brands alt fa-linkedin-in"></span>
-										<h3>LinkedIn</h3>
-										<a href="https://www.linkedin.com/in/syedmuhdhaikal/" target="_blank">linkedin.com/in/syedmuhdhaikal/</a>
-									</div>
-									<div>
-										<span class="icon brands alt fa-github"></span>
-										<h3>GitHub</h3>
-										<a href="https://github.com/syddgrt" target="_blank">github.com/syddgrt</a>
-									</div>                           
-                                </div>
-							</header>
-                            
+			<!-- Main -->
+			<div id="main" class="alt">
+				<section id="contact" class="contact-container">
+					<div class="inner">
+						<header class="major">
+							<h1>Contact Me</h1>
+							<p>Want to get in touch? Send me a message below/reach out via my info.</p>
+							<br>
 							
-							<!-- Contact Information -->
+							<div class="contact-info">
+								<div>
+									<span class="icon solid alt fa-envelope"></span>
+									<h3><i><a href="mailto:syedyangsebenar@gmail.com">syedyangsebenar@gmail.com</a></i></h3>
+									
+								</div>                          
+								<div>
+									<span class="icon solid alt fa-phone"></span>
+									<h3><i>+60 19 – 5477488</i></h3>
+									
+								</div>    
+								<div>
+									<span class="icon brands alt fa-linkedin-in"></span>
+									<h3><i><a href="https://www.linkedin.com/in/syedmuhdhaikal/" target="_blank">linkedin.com/in/syedmuhdhaikal/</a></i></h3>
+								</div>
+								<div>
+									<span class="icon brands alt fa-github"></span>
+									<h3><i><a href="https://github.com/syddgrt" target="_blank">github.com/syddgrt</a></i></h3>
+								</div>
+							</div>
+						</header>
+
+						<div class="contact-grid">
+							<!-- Contact Form -->
+							<form id="contact-grid" method="POST">
+								<div class="form-group">
+									<label for="name">Your Name</label>
+									<input type="text" id="name" name="name" required>
+								</div>
+								<div class="form-group">
+									<label for="email">Your Email</label>
+									<input type="email" id="email" name="email" required>
+								</div>
+								<div class="form-group">
+									<label for="message">Your Message</label>
+									<textarea id="message" name="message" rows="5"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          required></textarea>
+								</div>
+								<br>
+								<button type="submit">Send Message</button>
+							</form>
+
+							<!-- Contact Info -->
 							
 						</div>
-					</section>
-				</div>
-
-				<!-- Footer -->
-				<footer id="footer">
-					<div class="inner">
-						<ul class="icons">
-							<li><a href="https://github.com/syddgrt" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="https://www.linkedin.com/in/syedmuhdhaikal/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						</ul>
-						<ul class="copyright">
-							<li>&copy; Syed Muhammad Haikal</li><li></a></li>
-						</ul>
 					</div>
-				</footer>
-
+				</section>
 			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://github.com/syddgrt" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="https://www.linkedin.com/in/syedmuhdhaikal/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Syed Muhammad Haikal</li><li></li>
+					</ul>
+				</div>
+			</footer>
+
+		</div>
 
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
@@ -155,5 +163,30 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 
+		<script>
+			// Handle form submission (to be connected with your Azure Function)
+			document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    		e.preventDefault();
+			const formData = {
+				name: document.getElementById('name').value,
+				email: document.getElementById('email').value,
+				message: document.getElementById('message').value
+			};
+
+			const response = await fetch('/api/sendEmail', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(formData)
+			});
+
+			if (response.ok) {
+				alert("Message sent successfully!");
+				document.getElementById('contact-form').reset();
+			} else {
+				alert("Failed to send message. Please try again.");
+			}
+		});
+
+		</script>
 	</body>
 </html>
