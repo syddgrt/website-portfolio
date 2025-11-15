@@ -13,7 +13,7 @@ module.exports = async function (context, req) {
         }
 
         const emailMessage = {
-            sender: "no-reply@syedrious.cloud", // the domain you verified
+            sender: "DoNotReply@syedrious.cloud", // the domain you verified
             content: {
                 subject: `New message from ${name}`,
                 plainText: `From: ${name} <${email}>\n\n${message}`,
